@@ -5,6 +5,7 @@
 <div class="content">
     <div class="todo-container">
         <h2>To Do</h2>
+        <h3>Admin your tasks</h3>
         <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" 
         [cdkDropListConnectedTo]="[doneList]" class="todo-list" 
         (cdkDropListDropped)="drop($event)">
