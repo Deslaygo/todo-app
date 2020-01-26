@@ -1,0 +1,36 @@
+<div class="center">
+    <h1>Todos</h1>
+    <button math-raised-button (click)="openAddTodoDialog()" >Add todo</button>
+</div>
+<div class="content">
+    <div class="todo-container">
+        <h2>To Do</h2>
+        <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" 
+        [cdkDropListConnectedTo]="[doneList]" class="todo-list" 
+        (cdkDropListDropped)="drop($event)">
+        <div class="todo-box" *ngFor="let item of todo; let i = index" cdkDrag>
+            {{item.description}}
+            <a class="deleted-button" (click)="removeTodo(i,todo)">
+                <i class="material-icons">
+                    close
+                </i>
+            </a>
+        </div>
+    </div>
+    </div>
+
+    <div class="done-container">
+        <h2>Done</h2>
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList]" (cdkDropListDropped)="drop($event)" class="todo-list">
+        <div class="todo-box" *ngFor="let item of done; let i = index" cdkDrag>
+            {{item.description}}
+            <a class="deleted-button" (click)="removeTodo(i,done)">
+                <i class="material-icons">
+                    close
+                </i>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>

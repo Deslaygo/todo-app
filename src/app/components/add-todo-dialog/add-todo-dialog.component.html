@@ -1,0 +1,12 @@
+<h2>Add Todo</h2>
+<form #todoForm="ngForm" (ngSubmit)="save(todoForm)">
+    <mat-form-field>
+        <input mathInput placeholder="Description" required #description="ngModel" name="description" [(ngModel)]="todoData.description">
+        <math-error *ngIf="description.invalid && (description.dirty || description.touched)"></math-error>
+    <div *ngIf="content.errors.required">
+        Description is required
+    </div>
+    </mat-form-field>
+    <br>
+    <button math-raised-button type="submit">Add</button>
+</form>
